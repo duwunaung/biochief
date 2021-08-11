@@ -1,10 +1,29 @@
 <template>
-  <div id="nav">
+  <div id="nav" v-if="menu">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/profile">Profile</router-link>
   </div>
-  <router-view/>
+  <router-view />
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      menu: true,
+    };
+  },
+  mounted() {
+    if (
+      window.location.pathname == "/register" ||
+      window.location.pathname == "/login"
+    ) {
+      this.menu = false;
+    }
+  },
+};
+</script>
+
 
 <style>
 #app {
@@ -15,6 +34,9 @@
   color: #2c3e50;
 }
 
+body {
+  background: whitesmoke;
+}
 #nav {
   padding: 30px;
 }
