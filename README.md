@@ -1,4 +1,4 @@
-# biochef
+# biochief
 
 ## Project setup
 ```
